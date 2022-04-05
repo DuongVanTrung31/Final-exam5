@@ -1,0 +1,25 @@
+<form [formGroup]="formBook" (ngSubmit)="onSubmit(actionType)" autocomplete="off">
+  <h1 mat-dialog-title>{{actionType}}</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>Tên sách:</mat-label>
+      <input matInput placeholder="Nhập sản phẩm" formControlName="title" name="name">
+      <mat-error>Tên sách không được để trống</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>Tác giả:</mat-label>
+      <input matInput type="text" placeholder="Nhập giá" formControlName="author" name="price">
+      <mat-error>Tác giả không được để trống</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>Mô tả:</mat-label>
+      <textarea matInput placeholder="Thêm mô tả chi tiết" formControlName="description"
+                name="description">
+        </textarea>
+    </mat-form-field>
+    <div mat-dialog-actions [align]="'end'" style="margin-right: 40px; padding-right: 30px">
+      <button mat-raised-button color="accent" mat-dialog-close>Thoát</button>
+      <button type="submit" mat-raised-button color="warn" [disabled]="formBook.invalid">{{actionType == 'Thêm sách mới'? 'Thêm sách': 'Cập nhật'}}</button>
+    </div>
+  </div>
+</form>
